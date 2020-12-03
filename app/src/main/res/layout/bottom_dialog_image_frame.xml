@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp_8"
+    android:layout_marginTop="@dimen/dp_8"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_btn_open_origin_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_16"
+        android:backgroundTint="@android:color/white"
+        android:drawablePadding="@dimen/dp_32"
+        android:drawableStart="@drawable/ic_baseline_open_in_browser_24"
+        android:drawableTint="@color/bottom_sheet_delete"
+        android:gravity="start|center_vertical"
+        android:text="@string/origin_image_open"
+        android:textColor="@color/bottom_sheet_delete"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_btn_remove_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_16"
+        android:backgroundTint="@android:color/white"
+        android:drawablePadding="@dimen/dp_32"
+        android:drawableStart="@drawable/ic_baseline_delete_outline_24"
+        android:drawableTint="@color/bottom_sheet_delete"
+        android:gravity="start|center_vertical"
+        android:text="@string/bottom_sheet_option_remove"
+        android:textColor="@color/bottom_sheet_delete"
+        android:textSize="16sp" />
+
+</LinearLayout>

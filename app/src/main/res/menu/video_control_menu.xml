@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+    android:id="@+id/videoShare"
+        android:icon="@drawable/ic_baseline_video_library_24"
+    android:title="공유"
+        ></item>
+
+    <item
+        android:id="@+id/videoDelete"
+        android:icon="@drawable/ic_baseline_video_library_24"
+        android:title="삭제"
+        ></item>
+
+</menu>

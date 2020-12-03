@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.anlyn.alonevirtue.contents.ui.video.VideoContentsInfo"/>
+        <import type="com.anlyn.alonevirtue.contents.ui.video.VideoTouchControlListener"/>
+        <variable
+            name="tagList"
+            type="java.util.List&lt;String&gt;" />
+
+        <variable
+            name="videoList"
+            type="java.util.List&lt;VideoContentsInfo&gt;" />
+
+        <variable
+            name="video_info_obj"
+            type="VideoContentsInfo" />
+
+        <variable
+            name="video_base_path"
+            type="java.lang.String"/>
+
+        <variable
+            name="video_title"
+            type="java.lang.String"/>
+
+        <variable
+            name="videoListener"
+            type="com.anlyn.alonevirtue.contents.ui.video.VideoTouchControlListener" />
+        <variable
+            name="video_fragment"
+            type="androidx.fragment.app.Fragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/miniConstrainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:background="@drawable/video_cell_round_with_elevation"
+        android:elevation="5dp"
+        app:setListener="@{videoListener}">
+
+        <com.greenfrvr.hashtagview.HashtagView
+            android:id="@+id/tagsTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/VideoThumnail_mini"
+            app:layout_constraintTop_toBottomOf="@+id/videoTitle"
+            app:layout_constraintVertical_bias="1.0"
+            app:tagBackground="@drawable/item_bg"
+            app:tags="@{tagList}" />
+
+        <ImageView
+            android:id="@+id/VideoThumnail_mini"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_4"
+            app:fragment="@{video_fragment}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:videoBasePath="@{video_base_path}"
+            app:videoContentsInfo="@{video_info_obj}"
+            app:videoList="@{videoList}" />
+
+        <TextView
+            android:id="@+id/videoTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{video_title}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/VideoThumnail_mini"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

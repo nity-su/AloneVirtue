@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anlyn.alonevirtue">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_storage_house"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_storage_house_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
+
+        <activity android:name=".first_exe.FirstExeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".contents.ui.image.PhotoViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".contents.ui.video.SelectedVideoTypeActivity"
+            android:theme="@style/AppThemeNoActionBar.choiceNetOrLocal"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".contents.ui.image.AddImageActivity"
+            android:theme="@style/Theme_Dialog_No_ActionBar"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".contents.ui.video.AddVideoInfoActivity"
+            android:theme="@style/Theme_Dialog_No_ActionBar"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".contents.ContentsActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".CreateFavoriteObjectActivity"
+            android:label="추가하기"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".main.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

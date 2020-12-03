@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B8B3FC</color>
+    <color name="naviItemSelected">#413E71</color>
+    <color name="colorPrimaryDark">#785CB3</color>
+    <color name="itemDefault">#785CB3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="bottom_sheet_delete">#1B0B0D</color>
+    <color name="titleBackground">#514E57</color>
+    <color name="addImageBtnText">#020007</color>
+    <color name="toolBarTitleInDark">#ECC1F8</color>
+    <color name="toolBarTitleInLight">#7C378F</color>
+    <color name="mainToolBarPrimaryColor">#CB7E70</color>
+<!--    785CB3-->
+
+</resources>

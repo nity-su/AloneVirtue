@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_image">
+    <action
+        android:id="@+id/to_navigation_video"
+        app:destination="@+id/navigation_video"
+        ></action>
+    <action
+        android:id="@+id/to_navigation_image"
+        app:destination="@+id/navigation_image"
+        ></action>
+
+    <fragment
+        android:id="@+id/navigation_video"
+        android:name="com.anlyn.alonevirtue.contents.ui.video.VideoFragment"
+        android:label="@string/title_video"
+        tools:layout="@layout/fragment_video" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue=""
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_image"
+        android:name="com.anlyn.alonevirtue.contents.ui.image.ImageFragment"
+        android:label="@string/title_image"
+        tools:layout="@layout/fragment_image">
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+
+</navigation>
