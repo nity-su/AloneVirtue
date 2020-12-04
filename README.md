@@ -12,3 +12,5 @@
 
 ## 사용예제
 
+### 플레이스토어 링크
+[![Alt Text](https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png)](https://play.google.com/store/apps/details?id=com.anlyn.alonevirtue)
