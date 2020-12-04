@@ -10,7 +10,9 @@
 
 이럴 경우 찾아내야 하는 시간이 꽤 길어진다. 찾는 시간을 조금이나마 줄이고자 만들었다 
 
-## 사용예제
+## 사용예시
+![](video_operation_example.gif) ![](image_operation_example.gif)
+
 
 ### 플레이스토어 링크
 [![Alt Text](https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png)](https://play.google.com/store/apps/details?id=com.anlyn.alonevirtue)
