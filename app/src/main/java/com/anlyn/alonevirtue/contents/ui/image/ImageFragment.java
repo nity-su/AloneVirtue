@@ -47,7 +47,7 @@ public class ImageFragment extends Fragment {
 
         binding=FragmentImageBinding.inflate(getLayoutInflater(),container,false);
         imageViewModel =
-                new ViewModelProvider(this,new ImageViewModelFatory(this,fileName)).get(ImageViewModel.class);
+                new ViewModelProvider(this,new ImageViewModelFactory(this,fileName)).get(ImageViewModel.class);
         View root = binding.getRoot();
 
         Button addImageBtn =binding.AddFavorImageBtn;

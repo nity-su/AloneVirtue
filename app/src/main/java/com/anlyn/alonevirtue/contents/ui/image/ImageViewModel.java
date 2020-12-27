@@ -114,10 +114,10 @@ public class ImageViewModel extends ViewModel {
 
 }
 
-class ImageViewModelFatory implements ViewModelProvider.Factory{
+class ImageViewModelFactory implements ViewModelProvider.Factory{
     Fragment fragment;
     String path;
-    ImageViewModelFatory(Fragment fragment,String path){
+    ImageViewModelFactory(Fragment fragment,String path){
         this.fragment=fragment;
         this.path=path;
     }

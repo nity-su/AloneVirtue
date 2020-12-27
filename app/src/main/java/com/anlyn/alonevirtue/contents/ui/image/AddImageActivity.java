@@ -27,7 +27,7 @@ public class AddImageActivity extends AppCompatActivity {
     private ActivityAddImageBinding binding;
     private ImageView imageView;
     private String type;
-    private String uriString;
+    private String uriString="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +58,9 @@ public class AddImageActivity extends AppCompatActivity {
                 Intent intent =new Intent();
                 if(type.equals("NETWORK"))
                 intent.putExtra("url",binding.addImageUrlEV.getText().toString());
-                if(type.equals("GALLERY"))
-                    intent.putExtra("url",uriString);
+                if(type.equals("GALLERY")) {
+                    intent.putExtra("url", uriString);
+                }
                 setResult(1010,intent);
                 finish();
             }

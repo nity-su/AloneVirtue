@@ -82,7 +82,7 @@ public class FavoriteThingAdapter extends RecyclerView.Adapter<FavoriteThingAdap
                 public void onClick(View v) {
                     Context context =v.getContext();
                     Intent intent =new Intent(context, ContentsActivity.class);
-                    intent.putExtra("title",list.get(getAdapterPosition()).getName());
+                    intent.putExtra("title",list.get(getAdapterPosition()).getPathName());
                     context.startActivity(intent);
                 }
             });
