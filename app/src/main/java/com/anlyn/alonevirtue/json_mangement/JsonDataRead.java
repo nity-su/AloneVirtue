@@ -25,7 +25,6 @@ public class JsonDataRead {
             //ufferedReader.readLine()은 Stream에서 한줄을 읽어 반환한다.
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line);
-
             }
 
             return sb.toString();

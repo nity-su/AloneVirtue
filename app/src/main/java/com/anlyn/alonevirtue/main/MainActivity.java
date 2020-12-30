@@ -216,7 +216,7 @@ public class MainActivity extends MainAppCompatActivity implements View.OnClickL
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new FavoriteThingAdapter(liveData,getApplicationContext(),favorite_object_path);
         recyclerView.setAdapter(adapter);
-        viewModel.getLiveData().observe(this, new Observer<List<FavoriteObjectItem>>() {
+        liveData.observe(MainActivity.this, new Observer<List<FavoriteObjectItem>>() {
             @Override
             public void onChanged(List<FavoriteObjectItem> list) {
                 adapter.setList(list);
@@ -248,7 +248,6 @@ public class MainActivity extends MainAppCompatActivity implements View.OnClickL
             //create dir
             for(int i=0;i<list.size();i++){
                 File file = new File(getFilesDir()+File.separator+list.get(i).getPathName());
-
                 if(!file.exists()){
                     file.mkdir();
                 }

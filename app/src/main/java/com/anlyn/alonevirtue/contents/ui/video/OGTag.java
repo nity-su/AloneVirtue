@@ -30,11 +30,6 @@ class OGTag {
                 String text = tag.attr("property");
                 if ("og:image".equals(text)) {
                     info.setUrl(tag.attr("content"));
-
-//                } else if ("og:image".equals(text)) {
-//                    ret.setOgImageUrl(tag.attr("content"));
-//                } else if ("og:description".equals(text)) {
-//                    ret.setOgDescription(tag.attr("content"));
                 } else if ("og:title".equals(text)) {
                     info.setTitle(tag.attr("content"));
                 }

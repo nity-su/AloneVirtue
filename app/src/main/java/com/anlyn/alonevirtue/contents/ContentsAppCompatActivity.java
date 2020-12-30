@@ -147,6 +147,7 @@ public class ContentsAppCompatActivity extends AppCompatActivity implements Bott
 
             @Override
             protected void onPostExecute(List<VideoContentsInfo> imageInfos) {
+
                 list.setValue(imageInfos);
                 dialog.dismiss();
             }

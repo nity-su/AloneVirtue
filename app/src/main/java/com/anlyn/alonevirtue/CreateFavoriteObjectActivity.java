@@ -1,11 +1,14 @@
 package com.anlyn.alonevirtue;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.TableRow;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.anlyn.alonevirtue.databinding.ActivityCreateFavoriteObjectBinding;
 import com.bumptech.glide.Glide;
@@ -26,7 +30,9 @@ import java.io.InputStream;
 import java.util.UUID;
 
 public class CreateFavoriteObjectActivity extends AppCompatActivity {
-
+    final String TAG=CreateFavoriteObjectActivity.class.getName();
+    static final int READ_STORAGE_PERMISSION_REQUEST_CODE=111;
+    static final int WRITE_STORAGE_PERMISSION_REQUEST_CODE=101;
     private ActivityCreateFavoriteObjectBinding mainBinding;
     private Bitmap bitmap;
     private String favorite_object_path ;
@@ -42,6 +48,8 @@ public class CreateFavoriteObjectActivity extends AppCompatActivity {
     }
 
     void init(){
+        isReadStoragePermissionGranted();
+        isWriteStoragePermissionGranted();
         TableRow tableRow =mainBinding.tableRowCFO;
         ImageView imageView = mainBinding.FarvoriteObjectSetIV;
         Button cancelBtn =mainBinding.cancelBtnCFO;
@@ -186,5 +194,63 @@ public class CreateFavoriteObjectActivity extends AppCompatActivity {
         }
     }
 
+    public  boolean isReadStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted1");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked1");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        READ_STORAGE_PERMISSION_REQUEST_CODE);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted1");
+            return true;
+        }
+    }
+
+    public  boolean isWriteStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted2");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked2");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_STORAGE_PERMISSION_REQUEST_CODE);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted2");
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case WRITE_STORAGE_PERMISSION_REQUEST_CODE:
+                if(grantResults[0]== PackageManager.PERMISSION_GRANTED) {
+                    Log.v(TAG, "Permission: " + permissions[0] + "was " + grantResults[0]);
+                    //resume tasks needing this permission
+                }
+                break;
+
+            case READ_STORAGE_PERMISSION_REQUEST_CODE:
+                if(grantResults[0]== PackageManager.PERMISSION_GRANTED) {
+                    Log.v(TAG, "Permission: " + permissions[0] + "was " + grantResults[0]);
+                    //resume tasks needing this permission
+                }
+                break;
+        }
+    }
 
 }

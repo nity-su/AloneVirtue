@@ -61,14 +61,11 @@ public class ContentsAdapter  extends RecyclerView.Adapter<ContentsAdapter.Holde
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         String pickUrl = list.get(position).getUrl();
         VideoTouchControlListener listener =new VideoTouchControlListener(liveData,pickUrl,context,position,basePath);
-//        holder.imageView.setOnClickListener(listener);
-//        holder.imageView.setOnLongClickListener(listener);
         holder.hashTagViewBind(list.get(position).getTag());
         holder.bind(list.get(position),list.get(position).getTitle(),listener);
     }
 
     void setList(List<VideoContentsInfo> list){
-//        this.list = list;
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
@@ -146,7 +143,6 @@ public class ContentsAdapter  extends RecyclerView.Adapter<ContentsAdapter.Holde
         Iterator iterator = originList.iterator();
         while (iterator.hasNext()){
             VideoContentsInfo info = (VideoContentsInfo)iterator.next();
-
             if(info.getTag()!=null && info.getTag().contains(tag)){
                 listFiltered.add(info);
                 continue;

@@ -28,7 +28,6 @@ import androidx.navigation.ui.NavigationUI;
 public class ContentsActivity extends ContentsAppCompatActivity  {
     private ActivityContentsBinding binding;
     private Activity activity;
-    private SharedPreferences preferences;
     private final int READ_STORAGE_PERMISSION_REQUEST_CODE =1011;
     private Toolbar toolbar;
     @Override
@@ -89,63 +88,7 @@ public class ContentsActivity extends ContentsAppCompatActivity  {
         actionToImage.setTitle(title);
         Navigation.findNavController(activity,R.id.nav_host_fragment).navigate(actionToImage);
 
-        checkPermissionForReadExtertalStorage();
-        try {
-            requestPermissionForReadExtertalStorage();
-        } catch (Exception e) {e.printStackTrace();
-
-        }
     }
 
-
-    public boolean checkPermissionForReadExtertalStorage() {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                int result = checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
-                return result == PackageManager.PERMISSION_GRANTED;
-            }
-            return false;
-
-    }
-
-    public void requestPermissionForReadExtertalStorage() throws Exception {
-        try {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                    READ_STORAGE_PERMISSION_REQUEST_CODE);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater menuInflater = getMenuInflater();
-//        menuInflater.inflate(R.menu.menu_search, menu);
-//        Log.d("eee","eee");
-//        MenuItem searchItem = menu.findItem(R.id.toolbar);
-//
-//        SearchManager searchManager = (SearchManager) ContentsActivity.this.getSystemService(Context.SEARCH_SERVICE);
-//
-//        androidx.appcompat.widget.SearchView searchView = null;
-//        if (searchItem != null) {
-//            searchView = (SearchView) searchItem.getActionView();
-//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//                @Override
-//                public boolean onQueryTextSubmit(String query) {
-//
-//                    return false;
-//                }
-//
-//                @Override
-//                public boolean onQueryTextChange(String newText) {
-//                    return false;
-//                }
-//            });
-//        }
-//        if (searchView != null) {
-//            searchView.setSearchableInfo(searchManager.getSearchableInfo(ContentsActivity.this.getComponentName()));
-//        }
-//        return super.onCreateOptionsMenu(menu);
-//    }
 
 }

@@ -204,25 +204,6 @@ public class AddVideoInfoActivity extends AppCompatActivity {
                 }
             }
         });
-//        hashtagView.addOnTagClickListener(new HashtagView.TagsClickListener() {
-//            @Override
-//            public void onItemClicked(final Object item) {
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                hashTags.remove(item.toString());
-//                                hashtagView.setData(hashTags,HASH);
-//                            }
-//                        });
-//                    }
-//                }).start();
-//
-//            }
-//        });
-
         Observable<Object> searchTextObservable = createItemClickObservable(hashtagView);
         searchTextObservable
                 .subscribeOn(AndroidSchedulers.mainThread())
@@ -239,7 +220,8 @@ public class AddVideoInfoActivity extends AppCompatActivity {
         @Override
         public CharSequence prepare(String item) {
             SpannableString spannableString = new SpannableString("#" + item);
-            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#483BFF")), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#483BFF")),
+                    0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             //
             return spannableString;
         }
@@ -266,13 +248,10 @@ public class AddVideoInfoActivity extends AppCompatActivity {
 
     private Observable<Object> createItemClickObservable(final HashtagView hashtagView) {
 
-        // 2
         return Observable.create(new ObservableOnSubscribe<Object>() {
-
-            // 3
             @Override
             public void subscribe(final ObservableEmitter<Object> emitter) throws Exception {
-                // 4
+
                 final HashtagView.TagsClickListener listener =new HashtagView.TagsClickListener(){
                     @Override
                     public void onItemClicked(Object item) {
@@ -281,12 +260,10 @@ public class AddVideoInfoActivity extends AppCompatActivity {
                 };
                 hashtagView.addOnTagClickListener(listener);
 
-
-                // 6
                 emitter.setCancellable(new Cancellable() {
                     @Override
                     public void cancel() throws Exception {
-                        // 7
+
                         hashtagView.removeOnTagClickListener(listener);
                     }
                 });

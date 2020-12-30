@@ -11,11 +11,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoContInfoJsonHandler extends JsonTransHandler {
-    JSONObject jsonObject;
-
-    List<VideoContentsInfo> list;
+    private JSONObject jsonObject;
+    private String name = "videoInfo";
+    private List<VideoContentsInfo> list;
     @Override
     public Object encode(int type) {
+        if(type == OBJECT_TO_JSON){
+            return listToJson() ;
+        }
+        return null;
+    }
+
+    @Override
+    public Object decode(int type) {
+            if(type==JSON_TO_LIST) {
+              return jsonToList();
+            }
+
+
+        return null;
+    }
+
+    JSONObject listToJson(){
         JSONArray jsonArray =new JSONArray();
 
         for(VideoContentsInfo obj : list) {
@@ -31,32 +48,19 @@ public class VideoContInfoJsonHandler extends JsonTransHandler {
         JSONObject result = null;
         try {
             result = new JSONObject();
-            result.put("videoInfo", jsonArray);
+            result.put(name, jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
-
         return result;
-    }
-
-    @Override
-    public Object decode(int type) {
-            if(type==JSON_TO_LIST) {
-              return jsonToList();
-
-            }
-
-
-        return null;
     }
 
     List jsonToList(){
         List<VideoContentsInfo> list = new ArrayList<>();
-        JSONObject result= new JSONObject();
         JSONArray array = null;
         try {
-            array = jsonObject.getJSONArray("videoInfo");
+            array = jsonObject.getJSONArray(name);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -75,9 +79,6 @@ public class VideoContInfoJsonHandler extends JsonTransHandler {
         return list;
     }
 
-    public List<VideoContentsInfo> getList() {
-        return list;
-    }
 
     public void setList(List<VideoContentsInfo> list) {
         this.list = list;

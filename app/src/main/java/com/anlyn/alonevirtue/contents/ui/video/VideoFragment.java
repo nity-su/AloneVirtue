@@ -292,38 +292,6 @@ public class VideoFragment extends Fragment implements ProgressTaskVideo.DataSav
         }
         return bitmap;
     }
-//    @Override
-//    public Boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater menuInflater = getActivity().getMenuInflater();
-//        menuInflater.inflate(R.menu.menu_search, menu);
-//        Log.d("eee","eee");
-//        MenuItem searchItem = menu.findItem(R.id.toolbar);
-//
-//        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
-//
-//        androidx.appcompat.widget.SearchView searchView = null;
-//        if (searchItem != null) {
-//            searchView = (SearchView) searchItem.getActionView();
-//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//                @Override
-//                public boolean onQueryTextSubmit(String query) {
-//
-//                    return false;
-//                }
-//
-//                @Override
-//                public boolean onQueryTextChange(String newText) {
-//                    return false;
-//                }
-//            });
-//        }
-//        if (searchView != null) {
-//            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
-//        }
-//        super.onCreateOptionsMenu(menu,menuInflater);
-//        return true;
-//    }
-
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
@@ -342,8 +310,6 @@ public class VideoFragment extends Fragment implements ProgressTaskVideo.DataSav
                 return true;
             }
         });
-
-//        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
 
         SearchView searchView = null;
 
@@ -365,9 +331,6 @@ public class VideoFragment extends Fragment implements ProgressTaskVideo.DataSav
                 }
             });
 
-//        if (searchView != null) {
-//            searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
-//        }
         super.onCreateOptionsMenu(menu,menuInflater);
     }
 }

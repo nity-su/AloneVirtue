@@ -130,7 +130,6 @@ public class ImageFragment extends Fragment {
         Log.d("url",url);
 
         RequestOptions options = new RequestOptions();
-//        options.placeholder(R.drawable.ic_baseline_broken_image_24);
         options.error(R.drawable.ic_baseline_broken_image_24);
         options.fallback(R.drawable.ic_baseline_broken_image_24);
         Glide.with(fragment)

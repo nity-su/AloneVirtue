@@ -13,6 +13,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.anlyn.alonevirtue.databinding.BottomDialogMainFrameBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import java.io.File;
 import java.util.List;
 
 public class BottomMainDialogFragment extends BottomSheetDialogFragment {
@@ -48,10 +49,22 @@ public class BottomMainDialogFragment extends BottomSheetDialogFragment {
                 dismiss();
              }
          });
+
+         binding.tvMbtnPositionUp.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Context context = v.getContext();
+//                 String FavoriteObject = basePath + File.separator + "FavoriteObject";
+                 listener.changePosToTop(context,position,liveData,basePath);
+                 dismiss();
+             }
+         });
+
         return binding.getRoot();
     }
 
     public interface BottomMainListener{
          void deleteListener(Context context,String folderPath,String imagePath, int position, MutableLiveData<List<FavoriteObjectItem>> liveData,String basePath);
+         void changePosToTop(Context context,int position, MutableLiveData<List<FavoriteObjectItem>> liveData,String basePath);
     }
 }

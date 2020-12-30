@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ImageInfoJsonHandler extends JsonTransHandler {
     private List<ImageInfo> list;
-    private String title="ImageUrls";
+    private String name="ImageUrls";
     private JSONObject jsonObject;
     @Override
     public Object encode(int type) {
@@ -35,7 +35,7 @@ public class ImageInfoJsonHandler extends JsonTransHandler {
     List jsonToList(){
         List<ImageInfo> list = new ArrayList<>();
         try {
-            JSONArray jsonArray = jsonObject.getJSONArray(title);
+            JSONArray jsonArray = jsonObject.getJSONArray(name);
             Gson gson =new Gson();
             for(int i=0;i<jsonArray.length();i++){
                 String strJson = jsonArray.get(i).toString();
@@ -63,7 +63,7 @@ public class ImageInfoJsonHandler extends JsonTransHandler {
             }
         }
         try {
-            result.put(title,jsonArray);
+            result.put(name,jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -64,13 +64,12 @@ public class ProgressTaskVideo  extends AsyncTask<Integer, Integer, String[]> {
         this.infoList = infoList;
         this.titleAuto = (TitleAuto) view.getContext();
         dataSave = (DataSave)fragment;
-
     }
 
 
     @Override
     protected void onPreExecute() {
-        urlReplaced = url.replace("/", "").replace("\\", "");
+        urlReplaced = url.replace("//", "").replace("/", "");
         saveFileName = basePath + File.separator + urlReplaced;
         file = new File(saveFileName);
 
@@ -133,22 +132,6 @@ public class ProgressTaskVideo  extends AsyncTask<Integer, Integer, String[]> {
                     .into(view);
         }
 
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                String httpSiteName = url;
-////                if (!url.startsWith("http://") && !url.startsWith("https://"))
-////                    httpSiteName = "http://" + url;
-////
-////                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(httpSiteName));
-////                fragment.startActivity(browserIntent);
-//                Intent videoIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
-//                videoIntent.setPackage("com.android.chrome");
-//                videoIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                fragment.startActivity(videoIntent);
-//
-//            }
-//        });
     }
 
     @Override
@@ -183,5 +166,4 @@ public class ProgressTaskVideo  extends AsyncTask<Integer, Integer, String[]> {
 
 
 }
-//        return ;
 

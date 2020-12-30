@@ -1,6 +1,5 @@
 package com.anlyn.alonevirtue.main;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -33,7 +32,7 @@ public class FavoriteThingAdapter extends RecyclerView.Adapter<FavoriteThingAdap
     private MutableLiveData<List<FavoriteObjectItem>> liveData;
     private List<FavoriteObjectItem> list;
     private Context context;
-    private String favorite_object_path;
+    private String favorite_object_path="";
     public void setList(List<FavoriteObjectItem> list) {
         this.list = list;
         notifyDataSetChanged();
@@ -58,8 +57,7 @@ public class FavoriteThingAdapter extends RecyclerView.Adapter<FavoriteThingAdap
         FavoriteObjectItem item = list.get(position);
         String path = item.getPathName();
         Bitmap bitmap =getBitmap(path);
-        item.setBitmap(bitmap);
-        holder.bind(item,position);
+        holder.bind(item,position,bitmap);
     }
 
 
@@ -75,7 +73,7 @@ public class FavoriteThingAdapter extends RecyclerView.Adapter<FavoriteThingAdap
             this.binding=binding;
         }
 
-        void bind(Object obj,final int position){
+        void bind(Object obj,final int position,Bitmap bitmap){
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,6 +99,7 @@ public class FavoriteThingAdapter extends RecyclerView.Adapter<FavoriteThingAdap
             });
 
             binding.setVariable(BR.obj,obj);
+            binding.setVariable(BR.favoriteCircle,bitmap);
             binding.executePendingBindings();
         }
     }
@@ -118,7 +117,6 @@ public class FavoriteThingAdapter extends RecyclerView.Adapter<FavoriteThingAdap
 
     @BindingAdapter("imageUrl")
     public static void bindImage(final ImageView imageView, Bitmap bitmap) {
-   //     imageView.setImageBitmap(bitmap);
         final Context context = imageView.getContext();
 
         Glide.with(context)

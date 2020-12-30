@@ -46,6 +46,7 @@
     <string name="bottom_sheet_option_heading">Add Photo</string>
     <string name="bottom_sheet_option_remove">제거</string>
     <string name="bottom_sheet_option_up">첫번째로 옮기기</string>
+
     <style name="darkMode" parent="Theme.AppCompat.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -60,7 +61,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="toolbarTitleColor">@color/toolBarTitleInLight</item>
-
     </style>
 
     <style name="Theme_Dialog" parent="Theme.AppCompat.Dialog">
